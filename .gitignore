@@ -21,3 +21,6 @@ __pycache__/
 
 # Chroma
 chroma/
+
+# Temporary archives
+*.zip
