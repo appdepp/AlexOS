@@ -27,4 +27,14 @@ def test_cognitive_loop_saves_event_to_working_memory():
 
     assert len(loop.working_memory) == 1
     assert loop.working_memory.last() == event
+def test_cognitive_loop_builds_context():
+    loop = CognitiveLoop()
+
+    loop.process("Первое сообщение")
+    event = loop.process("Для меня важно построить AlexOS.")
+
+    assert event.context["current_message"] == "Для меня важно построить AlexOS."
+    assert "Первое сообщение" in event.context["recent_context"]
+    assert len(event.context["preferences"]) == 1
+
 

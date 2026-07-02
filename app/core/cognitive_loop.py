@@ -1,6 +1,8 @@
 from app.core.cognitive_event import CognitiveEvent
 from app.core.perception import PerceptionEngine
 from app.core.working_memory import WorkingMemory
+from app.core.recall import RecallEngine
+from app.core.context_builder import ContextBuilder
 
 
 class CognitiveLoop:
@@ -13,11 +15,15 @@ class CognitiveLoop:
     def __init__(self):
         self.perception = PerceptionEngine()
         self.working_memory = WorkingMemory()
+        self.recall = RecallEngine(self.working_memory)
+        self.context_builder = ContextBuilder(self.recall)
 
     def process(self, user_message: str) -> CognitiveEvent:
         event = CognitiveEvent(user_message=user_message)
 
         event = self.perception.perceive(event)
+
+        event.context = self.context_builder.build(event)
 
         self.working_memory.add(event)
 
