@@ -3,6 +3,7 @@ from app.core.perception import PerceptionEngine
 from app.core.working_memory import WorkingMemory
 from app.core.recall import RecallEngine
 from app.core.context_builder import ContextBuilder
+from app.core.reflection import ReflectionEngine
 
 
 class CognitiveLoop:
@@ -17,6 +18,7 @@ class CognitiveLoop:
         self.working_memory = WorkingMemory()
         self.recall = RecallEngine(self.working_memory)
         self.context_builder = ContextBuilder(self.recall)
+        self.reflection = ReflectionEngine()
 
     def process(self, user_message: str) -> CognitiveEvent:
         event = CognitiveEvent(user_message=user_message)
@@ -24,6 +26,8 @@ class CognitiveLoop:
         event = self.perception.perceive(event)
 
         event.context = self.context_builder.build(event)
+
+        event = self.reflection.reflect(event)
 
         self.working_memory.add(event)
 

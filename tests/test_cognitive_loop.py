@@ -36,5 +36,12 @@ def test_cognitive_loop_builds_context():
     assert event.context["current_message"] == "Для меня важно построить AlexOS."
     assert "Первое сообщение" in event.context["recent_context"]
     assert len(event.context["preferences"]) == 1
+def test_cognitive_loop_adds_reflection():
+    loop = CognitiveLoop()
+
+    event = loop.process("Для меня важно использовать граф памяти.")
+
+    assert "Preference detected." in event.reflection
+    assert "High importance event." in event.reflection
 
 
