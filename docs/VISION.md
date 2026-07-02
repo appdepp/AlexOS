@@ -54,3 +54,28 @@ AlexOS — это не чат.
 ## Принцип развития
 
 Каждая новая функция должна добавляться как отдельный модуль, не ломая ядро системы.
+
+---
+
+## Ultimate Goal
+
+The ultimate goal of AlexOS is to become a personal intelligence system that understands its owner deeply over time.
+
+AlexOS should not only remember facts.
+
+It should gradually build a living model of the owner:
+
+- goals;
+- projects;
+- preferences;
+- habits;
+- decision patterns;
+- strengths;
+- recurring mistakes;
+- long-term ambitions;
+- personal working style;
+- emotional and practical context.
+
+The final goal is that AlexOS knows the owner so well that it can help with decisions, planning, learning, work, creativity and self-understanding better than a simple chatbot.
+
+AlexOS should become a mirror, assistant and strategic partner.

@@ -103,3 +103,30 @@ LLM
 Answer
     ↓
 Memory Update
+
+---
+
+## Personal Model
+
+AlexOS must maintain a personal model of the owner.
+
+This model is not a single prompt.
+
+It is built from:
+
+- working memory;
+- vector memory;
+- graph memory;
+- knowledge memory;
+- decisions;
+- projects;
+- repeated patterns;
+- long-term goals.
+
+The personal model is used by the Context Builder to select the right context before every answer.
+
+Principle:
+
+AlexOS should not store everything equally.
+
+It should learn what matters.
