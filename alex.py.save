@@ -1,0 +1,145 @@
+import requests
+from rich.console import Console
+from rich.markdown import Markdown
+
+console = Console()
+
+MODEL = "qwen3:4b"
+OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
+
+SYSTEM_PROMPT = """
+Ты — Alex AI, персональный помощник Александра.
+Отвечай на русском языке.
+Сначала давай краткий вывод, потом конкретные шаги.
+Помогай с Python, Docker, Git, AI, RAG, криптой, яхтами, авто и приложениями.
+"""
+
+messages = [
+    {"role": "system", "content": SYSTEM_PROMPT}
+]
+
+console.print("[bold green]Alex AI запущен. Выход: /exit[/bold green]")
+
+while True:
+    user_text = input("\nТы: ").strip()
+
+    if user_text.lower() in ["/exit", "exit", "q", "quit"]:
+        console.print("[yellow]Выход.[/yellow]")
+        break
+
+    messages.append({"role": "user", "content": user_text})
+
+    try:
+        response = requests.post(
+            OLLAMA_URL,
+            json={
+                "model": MODEL,
+                "messages": messages,
+                "stream": False,
+                "options": {
+                    "temperature": 0.4
+                }
+            },
+            timeout=300
+        )
+
+        response.raise_for_status()
+        answer = response.json()["message"]["content"]
+
+        messages.append({"role": "assistant", "content": answer})
+
+        console.print("\n[bold cyan]Alex AI:[/bold cyan]")
+        console.print(Markdown(answer))
+
+    except Exception as error:
+        console.print(f"[bold red]Ошибка:[/bold red] {error}")
+        console.print("Проверь, что Ollama запущена: ollama serve")import requests
+from rich.console import Console
+from rich.markdown import Markdown
+
+console = Console()
+
+MODEL = "qwen3:4b"
+OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
+
+SYSTEM_PROMPT = """
+Ты — Alex AI, персональный помощник Александра.
+Отвечай на русском.
+Сначала краткий вывод, потом конкретные шаги.
+Помогай с Python, Docker, Git, AI, RAG, криптой, яхтами, авто и приложениями.
+"""
+
+messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+
+console.print("[bold green]Alex AI запущен. Выход: /exit[/bold green]")
+
+while True:
+    user_text = input("\nТы: ").strip()
+
+    if user_text in ["/exit", "exit", "q", "quit"]:
+        break
+
+    messages.append({"role": "user", "content": user_text})
+
+    response = requests.post(
+        OLLAMA_URL,
+        json={
+            "model": MODEL,
+            "messages": messages,
+            "stream": False,
+            "options": {
+                "temperature": 0.4
+            }
+        },
+        timeout=300
+    )
+
+    response.raise_for_stcat > alex.py <<'PY'
+import requests
+from rich.console import Console
+from rich.markdown import Markdown
+
+console = Console()
+
+MODEL = "qwen3:4b"
+OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
+
+SYSTEM_PROMPT = """
+Ты — Alex AI, персональный помощник Александра.
+Отвечай на русском.
+Сначала краткий вывод, потом конкретные шаги.
+Помогай с Python, Docker, Git, AI, RAG, криптой, яхтами, авто и приложениями.
+"""
+
+messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+
+console.print("[bold green]Alex AI запущен. Выход: /exit[/bold green]")
+
+while True:
+    user_text = input("\nТы: ").strip()
+
+    if user_text in ["/exit", "exit", "q", "quit"]:
+        break
+
+    messages.append({"role": "user", "content": user_text})
+
+    response = requests.post(
+        OLLAMA_URL,
+        json={
+            "model": MODEL,
+            "messages": messages,
+            "stream": False,
+            "options": {
+                "temperature": 0.4
+            }
+        },
+        timeout=300
+    )
+
+    response.raise_for_status()
+    answer = response.json()["message"]["content"]
+
+    messages.append({"role": "assistant", "content": answer})
+
+    console.print("\n[bold cyan]Alex AI:[/bold cyan]")
+    console.print(Markdown(answer))
