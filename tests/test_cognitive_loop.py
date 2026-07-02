@@ -9,3 +9,14 @@ def test_cognitive_loop_returns_event():
 
     assert isinstance(event, CognitiveEvent)
     assert event.user_message == "Я хочу построить AlexOS."
+
+
+def test_cognitive_loop_extracts_preference():
+    loop = CognitiveLoop()
+
+    event = loop.process("Для меня важно, чтобы AlexOS использовал граф памяти.")
+
+    assert len(event.preferences) == 1
+    assert "граф памяти" in event.preferences[0].lower()
+    assert event.importance >= 4
+    assert event.confidence >= 0.9
