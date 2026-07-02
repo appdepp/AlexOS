@@ -177,6 +177,16 @@ tests/
 
 ---
 
+---
+
+## Development
+
+Run tests:
+
+```bash
+pytest
+
+
 # Автор
 
 Alex
