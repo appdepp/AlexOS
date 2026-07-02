@@ -1,0 +1,3 @@
+OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
+DEFAULT_MODEL = "qwen3:4b"
+TEMPERATURE = 0.4
