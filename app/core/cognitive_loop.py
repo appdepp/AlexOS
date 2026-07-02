@@ -4,6 +4,7 @@ from app.core.working_memory import WorkingMemory
 from app.core.recall import RecallEngine
 from app.core.context_builder import ContextBuilder
 from app.core.reflection import ReflectionEngine
+from app.core.llm_manager import LLMManager
 
 
 class CognitiveLoop:
@@ -18,6 +19,7 @@ class CognitiveLoop:
         self.working_memory = WorkingMemory()
         self.recall = RecallEngine(self.working_memory)
         self.context_builder = ContextBuilder(self.recall)
+        self.llm = LLMManager()
         self.reflection = ReflectionEngine()
 
     def process(self, user_message: str) -> CognitiveEvent:
@@ -27,8 +29,11 @@ class CognitiveLoop:
 
         event.context = self.context_builder.build(event)
 
+        event.assistant_response = self.llm.generate(event.context)
+
         event = self.reflection.reflect(event)
 
         self.working_memory.add(event)
 
         return event
+
