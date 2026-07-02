@@ -130,3 +130,77 @@ Principle:
 AlexOS should not store everything equally.
 
 It should learn what matters.
+
+---
+
+## Context-First Architecture
+
+AlexOS is not primarily a multi-agent system.
+
+The core of AlexOS is the Context Engine.
+
+The main task of the system is to understand the current situation, extract the right information from previous conversations, and build a focused context kernel before every LLM call.
+
+A specialized agent is optional.
+
+A correct context is mandatory.
+
+---
+
+## Context Kernel
+
+For every user request, AlexOS must build a context kernel.
+
+The context kernel includes:
+
+- current user message;
+- active topic;
+- user intent;
+- relevant facts;
+- relevant past conversations;
+- related projects;
+- known decisions;
+- related graph nodes;
+- semantically similar memories;
+- stable personal knowledge;
+- temporary working memory.
+
+The LLM should receive not all available memory, but only the context that matters for the current task.
+
+---
+
+## Memory Extraction
+
+Every conversation should be analyzed after or during the dialogue.
+
+AlexOS should extract:
+
+- facts;
+- goals;
+- preferences;
+- decisions;
+- tasks;
+- ideas;
+- doubts;
+- repeated patterns;
+- relationships between entities;
+- context in which the information appeared.
+
+Memory without context is dangerous.
+
+A fact should be stored together with:
+
+- source;
+- timestamp;
+- topic;
+- confidence;
+- related entities;
+- reason why it matters.
+
+---
+
+## Principle
+
+The goal is not to create many agents.
+
+The goal is to create one system that can build the right context for any situation.
