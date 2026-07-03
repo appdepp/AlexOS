@@ -346,3 +346,47 @@ The objective is not to answer questions.
 The objective is to build a continuously improving cognitive model of its owner.
 
 Every component should support this vision.
+
+---
+
+# Audit Before Every Major Release
+
+Before releasing any major version of AlexOS:
+
+1. Activate virtual environment
+
+```bash
+source .venv/bin/activate
+```
+
+2. Verify repository
+
+```bash
+git status
+```
+
+3. Run all tests
+
+```bash
+pytest
+```
+
+4. Generate Project Snapshot
+
+5. Review ROADMAP
+
+6. Review ARCHITECTURE
+
+7. Review CHANGELOG
+
+8. Review commit history
+
+```bash
+git log --oneline --decorate -15
+```
+
+9. Push latest changes
+
+10. Create Git Tag
+
+

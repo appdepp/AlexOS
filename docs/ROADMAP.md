@@ -1,5 +1,15 @@
 # AlexOS Roadmap
 
+# AlexOS Roadmap
+
+Current Version
+
+✅ v1.8.0 Stable
+
+Current Stage
+
+➡ v1.9 Identity Model
+
 ## Current focus
 
 AlexOS is currently focused on building the Cognitive Core.
