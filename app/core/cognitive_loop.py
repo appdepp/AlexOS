@@ -5,6 +5,7 @@ from app.core.recall import RecallEngine
 from app.core.context_builder import ContextBuilder
 from app.core.reflection import ReflectionEngine
 from app.core.llm_manager import LLMManager
+from app.services.long_term_memory import LongTermMemory
 
 
 class CognitiveLoop:
@@ -21,6 +22,7 @@ class CognitiveLoop:
         self.context_builder = ContextBuilder(self.recall)
         self.llm = LLMManager()
         self.reflection = ReflectionEngine()
+        self.long_term_memory = LongTermMemory()
 
     def process(self, user_message: str) -> CognitiveEvent:
         event = CognitiveEvent(user_message=user_message)
@@ -34,6 +36,8 @@ class CognitiveLoop:
         event = self.reflection.reflect(event)
 
         self.working_memory.add(event)
+
+        self.long_term_memory.store(event)
 
         return event
 

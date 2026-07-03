@@ -57,3 +57,13 @@ def test_cognitive_loop_generates_assistant_response():
     event = loop.process("Привет")
 
     assert event.assistant_response != ""
+
+def test_cognitive_loop_saves_event_to_long_term_memory():
+    loop = CognitiveLoop()
+
+    event = loop.process("AlexOS должен помнить важные события.")
+
+    results = loop.long_term_memory.search("AlexOS")
+
+    assert len(results) == 1
+    assert results[0] == event
