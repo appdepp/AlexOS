@@ -1,8 +1,18 @@
 # AlexOS Vision
 
-AlexOS — это персональная локальная AI-платформа, которая со временем должна стать центральным помощником владельца.
-
 ---
+
+## Motto
+
+> **Understand. Remember. Reason. Evolve.**
+
+AlexOS is being built as a Cognitive Operating System.
+
+Its purpose is not simply to answer questions.
+
+Its purpose is to understand the user, remember important information, reason over accumulated knowledge and continuously evolve.
+
+Every architectural decision should support one or more of these four principles.
 
 ## Видение на 1–2 года
 

@@ -1,17 +1,53 @@
 # AlexOS
 
-> Personal Local AI Operating System
+> **Understand. Remember. Reason. Evolve.**
+
+A personal cognitive operating system.
 
 ---
 
-# Миссия
+## Official Boot Command
 
-AlexOS — это персональная локальная AI-платформа, принадлежащая только владельцу.
+```
+AlexOS! Hola Amigo!
+```
 
-Главная цель проекта — создать помощника, который способен решать повседневые и профессиональные задачи без зависимости от облачных сервисов, сохраняя полную приватность данных.
+This command starts an AlexOS engineering session.
+
+It instructs any AI assistant or developer to synchronize with the project before continuing development.
+
+See:
+
+- docs/BOOT_PROTOCOL.md
+- docs/ROADMAP.md
+- docs/DEVELOPER_GUIDE.md
 
 ---
 
+## Current Status
+
+Current Stable Release:
+
+**v1.8.0**
+
+Current Development Stage:
+
+**v1.9 — Identity Model**
+
+---
+
+## Philosophy
+
+AlexOS is not just another AI assistant.
+
+AlexOS is a Cognitive Operating System designed to:
+
+- Understand
+- Remember
+- Reason
+- Evolve
+
+through continuous interaction with its user.
 # Основные принципы
 
 - Local First
