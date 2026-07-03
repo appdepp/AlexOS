@@ -390,3 +390,89 @@ git log --oneline --decorate -15
 10. Create Git Tag
 
 
+---
+
+# Running AlexOS with Ollama
+
+AlexOS currently uses local LLM infrastructure through Ollama.
+
+## Check Ollama
+
+```bash
+ollama list
+ollama ps
+curl http://127.0.0.1:11434/api/tags
+```
+
+If `curl` returns a list of models, Ollama is running.
+
+---
+
+## Start Ollama Server
+
+If Ollama is not running, start it in a separate terminal:
+
+```bash
+ollama serve
+```
+
+Keep this terminal open.
+
+---
+
+## Check Local Model
+
+Example:
+
+```bash
+ollama run qwen3:4b
+```
+
+Exit model chat:
+
+```text
+/bye
+```
+
+or:
+
+```text
+Ctrl + D
+```
+
+---
+
+## Run AlexOS Terminal
+
+Open a new terminal:
+
+```bash
+cd ~/AlexAI
+source .venv/bin/activate
+python -m app.main
+```
+
+Exit AlexOS:
+
+```text
+/exit
+```
+
+---
+
+## Recommended Startup Sequence
+
+Terminal 1:
+
+```bash
+ollama serve
+```
+
+Terminal 2:
+
+```bash
+cd ~/AlexAI
+source .venv/bin/activate
+pytest
+python -m app.main
+```
